@@ -4,7 +4,7 @@ minpie의 libminpie_c_crypto 라이브러리 입니다.<br>
 ```
 Disclaimer: This is my experimental library. Do not use serious/important program. it just for my studying.
 면책조항: 이 패키지는 저의 실험적인 라이브러리 입니다. 절대로 중요한 용도로 사용하지 마십시오. 단지 공부용으로 만들었습니다.
-```<br>
+```
 
 <hr>
 <h2>Installation</h2>
@@ -18,7 +18,7 @@ If you using other environment, may not compiled or need some modify.<br>
 Ubuntu 20.04 LTS x86-64 architecture
 GCC 9.4.0
 OpenSSL 1.1.1f
-```<br>
+```
 comment 1: Other linux version may works.<br>
 comment 2: OpenSSL is can be easily installed by ($ sudo apt-get install libssl-dev), but will be not latest version.<br>
 
@@ -34,7 +34,7 @@ and move to the downloaded directory.<br>
 ```
 chmod +x build.sh
 ./build.sh
-```<br>
+```
 The file build.sh will compile my source codes to .so library file.<br>
 If you need, you can modify build.sh to change something(e.g. GCC version)<br>
 
@@ -46,7 +46,7 @@ for now, you can use like Usage section. or do it yourself.<br>
 you can use my library with like below compile command:
 ```
 gcc -o [output name] [your source code name].c -L"./../output" -Wl,-rpath="./../output" -l"minpieSslaes" -lssl -lcrypto
-```<br>
+```
 
 <h2>Example program use guide</h2>
 1. write example c source code.<br>
@@ -131,7 +131,7 @@ int main(void){
     return 0;
 }
 // # End code
-```<br>
+```
 save this any directory(in this example, will be called "./example1.c")<br>
 
 2. get libminpieSslaes.h<br>
@@ -141,7 +141,8 @@ find libminpieSslaes.h file in my repository and place to same directory to exam
 use below compile command:<br>
 ```
 gcc -o example1 example1.c -L"./../output" -Wl,-rpath="./../output" -l"minpieSslaes" -lssl -lcrypto
-```<br>
+```
+<br>
 notice 1: the option: -L"./../output" is MUST edited to correct path where have libminpieSslaes.so<br>
 notice 2: the option: -Wl,-rpath="./../output" is MUST edited to correct path where have libminpieSslaes.so<br>
 notice 3: in this example, I assume you already installed OpenSSL and you can use with GCC compiler. if not, sorry.<br>
@@ -150,7 +151,7 @@ notice 3: in this example, I assume you already installed OpenSSL and you can us
 if no output showed, that may means no error. so you can run the program like this:<br>
 ```
 ./example1
-```<br>
+```
 
 5. Result<br>
 result will be like this:<br>
@@ -164,6 +165,6 @@ plain2  : aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 cipher2 : 34882238f2930783c7b7b12dc3b58bea
 key2    : 5555555555555555555555555555555555555555555555555555555555555555
 ========End==============
-```<br>
+```
 ### That's All, for now!</h3>
 <hr>
