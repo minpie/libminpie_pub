@@ -22,19 +22,23 @@ OpenSSL 1.1.1f
 comment 1: Other linux version may works.<br>
 comment 2: OpenSSL is can be easily installed by ($ sudo apt-get install libssl-dev), but will be not latest version.<br>
 
-<h4>1. Clone this repo.</h4><br>
+<h4>1. Clone this repo.</h4>
+
 ```
 git clone https://github.com/minpie/libminpie_pub.git
 cd libminpie_pub/libminpie_c_crypto
 ```
+
 clone this repo with git command(or whatever you want) on a directory where you want.<br>
 and move to the downloaded directory.<br>
 
-<h4>2. Build this library.</h4><br>
+<h4>2. Build this library.</h4>
+
 ```
 chmod +x build.sh
 ./build.sh
 ```
+
 The file build.sh will compile my source codes to .so library file.<br>
 If you need, you can modify build.sh to change something(e.g. GCC version)<br>
 
@@ -44,6 +48,7 @@ for now, you can use like Usage section. or do it yourself.<br>
 
 <h4>Usage</h4>
 you can use my library with like below compile command:<br>
+
 ```
 gcc -o [output name] [your source code name].c -L"./../output" -Wl,-rpath="./../output" -l"minpieSslaes" -lssl -lcrypto
 ```
@@ -144,6 +149,7 @@ use below compile command:<br>
 ```
 gcc -o example1 example1.c -L"./../output" -Wl,-rpath="./../output" -l"minpieSslaes" -lssl -lcrypto
 ```
+
 <br>
 notice 1: the option: -L"./../output" is MUST edited to correct path where have libminpieSslaes.so<br>
 notice 2: the option: -Wl,-rpath="./../output" is MUST edited to correct path where have libminpieSslaes.so<br>
@@ -151,12 +157,14 @@ notice 3: in this example, I assume you already installed OpenSSL and you can us
 
 4. Run<br>
 if no output showed, that may means no error. so you can run the program like this:<br>
+
 ```
 ./example1
 ```
 
 5. Result<br>
 result will be like this:<br>
+
 ```
 ========Encrypt==============
 plain1  : aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -168,5 +176,6 @@ cipher2 : 34882238f2930783c7b7b12dc3b58bea
 key2    : 5555555555555555555555555555555555555555555555555555555555555555
 ========End==============
 ```
+
 ### That's All, for now!</h3>
 <hr>
