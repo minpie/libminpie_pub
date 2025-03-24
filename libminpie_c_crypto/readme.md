@@ -22,7 +22,7 @@ OpenSSL 1.1.1f
 comment 1: Other linux version may works.<br>
 comment 2: OpenSSL is can be easily installed by ($ sudo apt-get install libssl-dev), but will be not latest version.<br>
 
-<h4>1. Clone this repo.</h4>
+<h4>1. Clone this repo.</h4><br>
 ```
 git clone https://github.com/minpie/libminpie_pub.git
 cd libminpie_pub/libminpie_c_crypto
@@ -30,7 +30,7 @@ cd libminpie_pub/libminpie_c_crypto
 clone this repo with git command(or whatever you want) on a directory where you want.<br>
 and move to the downloaded directory.<br>
 
-<h4>2. Build this library.</h4>
+<h4>2. Build this library.</h4><br>
 ```
 chmod +x build.sh
 ./build.sh
@@ -43,7 +43,7 @@ will add this section later.<br>
 for now, you can use like Usage section. or do it yourself.<br>
 
 <h4>Usage</h4>
-you can use my library with like below compile command:
+you can use my library with like below compile command:<br>
 ```
 gcc -o [output name] [your source code name].c -L"./../output" -Wl,-rpath="./../output" -l"minpieSslaes" -lssl -lcrypto
 ```
@@ -51,6 +51,7 @@ gcc -o [output name] [your source code name].c -L"./../output" -Wl,-rpath="./../
 <h2>Example program use guide</h2>
 1. write example c source code.<br>
 following source code is named "example1.c"<br>
+
 ```
 /*
 example1.c
@@ -132,6 +133,7 @@ int main(void){
 }
 // # End code
 ```
+<br>
 save this any directory(in this example, will be called "./example1.c")<br>
 
 2. get libminpieSslaes.h<br>
