@@ -17,10 +17,11 @@ If you using other environment, may not compiled or need some modify.<br>
 ```
 Ubuntu 20.04 LTS x86-64 architecture
 GCC 9.4.0
-OpenSSL 1.1.1f
+OpenSSL 1.1.1f(OPTIONAL)
 ```
 comment 1: Other linux version may works.<br>
-comment 2: OpenSSL is can be easily installed by ($ sudo apt-get install libssl-dev), but will be not latest version.<br>
+comment 2: OpenSSL is not required for not all my codes. if need, change build.sh
+comment 3: OpenSSL is can be easily installed by ($ sudo apt-get install libssl-dev), but will be not latest version.<br>
 
 <h4>1. Clone this repo.</h4>
 
@@ -50,51 +51,51 @@ for now, you can use like Usage section. or do it yourself.<br>
 you can use my library with like below compile command:<br>
 
 ```
-gcc -o [output name] [your source code name].c -L"./../output" -Wl,-rpath="./../output" -l"minpieSslaes" -lssl -lcrypto
+gcc -o example2 example2.c -L"./../output" -Wl,-rpath="./../output" -l"minpieAes"
 ```
 
 <h2>Example program use guide</h2>
 1. write example c source code.<br>
-following source code is named "example1.c"<br>
+following source code is named "example2.c"<br>
 
 ```
 /*
-example1.c
-- under libminpie_c_template/example
+example2.c
+- under libminpie_c_crypto/example
 
-an example of making C library in ubuntu+gcc.
-ver.250324.1
+an example program to test AES with my own code.
+ver.250325.1
 
 compile with like this:
-- gcc -o example1 example1.c -L"./../output" -Wl,-rpath="./../output" -l"minpieSslaes" -lssl -lcrypto
+- gcc -o example2 example2.c -L"./../output" -Wl,-rpath="./../output" -l"minpieAes"
 */
 // # Start code
 // ## include:
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "libminpieSslaes.h"
+#include "libminpieAes.h"
 
 
 // ## main()
 int main(void){
     unsigned char plain1[16] = {0, };
     unsigned char cipher1[16] = {0, };
-    unsigned char key1[32] = {0, };
+    unsigned char key1[16] = {0, };
     
 
     unsigned char plain2[16] = {0, };
     unsigned char cipher2[16] = {0, };
-    unsigned char key2[32] = {0, };
+    unsigned char key2[16] = {0, };
 
     memset(plain1, 0xaa, 16);
-    memset(key1, 0x55, 32);
-    memcpy(key2, key1, 32);
+    memset(key1, 0x55, 16);
+    memcpy(key2, key1, 16);
 
 
-    libminpie_Sslaes_Aes256Encrypt(cipher1, plain1, key1);
+    libminpie_Aes_Aes128Encrypt(cipher1, plain1, key1);
     memcpy(cipher2, cipher1, 16);
-    libminpie_Sslaes_Aes256Decrypt(plain2, cipher2, key2);
+    libminpie_Aes_Aes128Decrypt(plain2, cipher2, key2);
 
     printf("========Encrypt==============\n");
     printf("plain1  : ");
@@ -110,7 +111,7 @@ int main(void){
     printf("\n");
 
     printf("key1    : ");
-    for(int i=0; i<32; i++){
+    for(int i=0; i<16; i++){
         printf("%02x", key1[i]);
     }
     printf("\n");
@@ -128,7 +129,7 @@ int main(void){
     printf("\n");
 
     printf("key2    : ");
-    for(int i=0; i<32; i++){
+    for(int i=0; i<16; i++){
         printf("%02x", key2[i]);
     }
     printf("\n");
@@ -139,27 +140,26 @@ int main(void){
 // # End code
 ```
 <br>
-save this any directory(in this example, will be called "./example1.c")<br>
+save this any directory(in this example, will be called "./example2.c")<br>
 
-2. get libminpieSslaes.h<br>
-find libminpieSslaes.h file in my repository and place to same directory to example1.c<br>
+2. get libminpieAes.h<br>
+find libminpieAes.h file in my repository and place to same directory to example2.c<br>
 
 3. compile it<br>
 use below compile command:<br>
 ```
-gcc -o example1 example1.c -L"./../output" -Wl,-rpath="./../output" -l"minpieSslaes" -lssl -lcrypto
+gcc -o example2 example2.c -L"./../output" -Wl,-rpath="./../output" -l"minpieAes"
 ```
 
 <br>
-notice 1: the option: -L"./../output" is MUST edited to correct path where have libminpieSslaes.so<br>
-notice 2: the option: -Wl,-rpath="./../output" is MUST edited to correct path where have libminpieSslaes.so<br>
-notice 3: in this example, I assume you already installed OpenSSL and you can use with GCC compiler. if not, sorry.<br>
+notice 1: the option: -L"./../output" is MUST edited to correct path where have libminpieAes.so<br>
+notice 2: the option: -Wl,-rpath="./../output" is MUST edited to correct path where have libminpieAes.so<br>
 
 4. Run<br>
 if no output showed, that may means no error. so you can run the program like this:<br>
 
 ```
-./example1
+./example2
 ```
 
 5. Result<br>
@@ -168,12 +168,12 @@ result will be like this:<br>
 ```
 ========Encrypt==============
 plain1  : aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-cipher1 : 34882238f2930783c7b7b12dc3b58bea
-key1    : 5555555555555555555555555555555555555555555555555555555555555555
+cipher1 : 4e194ac3fb1da6291f5ebab5743e96d4
+key1    : 55555555555555555555555555555555
 ========Decrypt==============
 plain2  : aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-cipher2 : 34882238f2930783c7b7b12dc3b58bea
-key2    : 5555555555555555555555555555555555555555555555555555555555555555
+cipher2 : 4e194ac3fb1da6291f5ebab5743e96d4
+key2    : 55555555555555555555555555555555
 ========End==============
 ```
 

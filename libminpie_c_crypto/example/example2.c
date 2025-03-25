@@ -1,40 +1,40 @@
 /*
-example1.c
+example2.c
 - under libminpie_c_crypto/example
 
-an example program to test AES with OpenSSL.
-ver.250324.1
+an example program to test AES with my own code.
+ver.250325.1
 
 compile with like this:
-- gcc -o example1 example1.c -L"./../output" -Wl,-rpath="./../output" -l"minpieSslaes" -lssl -lcrypto
+- gcc -o example2 example2.c -L"./../output" -Wl,-rpath="./../output" -l"minpieAes"
 */
 // # Start code
 // ## include:
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "libminpieSslaes.h"
+#include "libminpieAes.h"
 
 
 // ## main()
 int main(void){
     unsigned char plain1[16] = {0, };
     unsigned char cipher1[16] = {0, };
-    unsigned char key1[32] = {0, };
+    unsigned char key1[16] = {0, };
     
 
     unsigned char plain2[16] = {0, };
     unsigned char cipher2[16] = {0, };
-    unsigned char key2[32] = {0, };
+    unsigned char key2[16] = {0, };
 
     memset(plain1, 0xaa, 16);
-    memset(key1, 0x55, 32);
-    memcpy(key2, key1, 32);
+    memset(key1, 0x55, 16);
+    memcpy(key2, key1, 16);
 
 
-    libminpie_Sslaes_Aes256Encrypt(cipher1, plain1, key1);
+    libminpie_Aes_Aes128Encrypt(cipher1, plain1, key1);
     memcpy(cipher2, cipher1, 16);
-    libminpie_Sslaes_Aes256Decrypt(plain2, cipher2, key2);
+    libminpie_Aes_Aes128Decrypt(plain2, cipher2, key2);
 
     printf("========Encrypt==============\n");
     printf("plain1  : ");
@@ -50,7 +50,7 @@ int main(void){
     printf("\n");
 
     printf("key1    : ");
-    for(int i=0; i<32; i++){
+    for(int i=0; i<16; i++){
         printf("%02x", key1[i]);
     }
     printf("\n");
@@ -68,7 +68,7 @@ int main(void){
     printf("\n");
 
     printf("key2    : ");
-    for(int i=0; i<32; i++){
+    for(int i=0; i<16; i++){
         printf("%02x", key2[i]);
     }
     printf("\n");

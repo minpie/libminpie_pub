@@ -7,5 +7,10 @@ PATH_OUTPUT=output
 
 
 ## commands:
+### libminpieSslaes.so:
 $COMMAND_GCC -c -fpic ${PATH_SOURCECODES}/symmetric/libminpieSslaes.c -o ${PATH_OUTPUT}/libminpieSslaes.o
 $COMMAND_GCC -shared ${PATH_OUTPUT}/libminpieSslaes.o -o ${PATH_OUTPUT}/libminpieSslaes.so
+
+### libminpieAes.so:
+$COMMAND_GCC -c -fpic ${PATH_SOURCECODES}/symmetric/libminpieAes.c -o ${PATH_OUTPUT}/libminpieAes.o
+$COMMAND_GCC -shared ${PATH_OUTPUT}/libminpieAes.o -o ${PATH_OUTPUT}/libminpieAes.so
