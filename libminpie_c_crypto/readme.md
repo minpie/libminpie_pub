@@ -22,7 +22,7 @@ GNU GMP 6.2.0(OPTIONAL)
 ```
 
 comment 1: Other linux version may works.<br>
-comment 2: OpenSSL is not required for not all my codes. if need, change build.sh
+comment 2: OpenSSL is not required for not all my codes. if need, change build.sh<br>
 comment 3: OpenSSL is can be easily installed by ($ sudo apt-get install libssl-dev), but will be not latest version.<br>
 comment 4: GNU GMP is not required for not all my codes. if need, change build.sh
 
@@ -47,21 +47,21 @@ chmod +x buildTotal.sh
 ./buildTotal.sh
 ```
 
-the output .so file may be libminpiecrypto.so
-that's requires all dependent library like GNU GMP, OpenSSL.
-so when you compile your code with this, you need to link all the library.
+the output .so file may be libminpiecrypto.so<br>
+that's requires all dependent library like GNU GMP, OpenSSL.<br>
+so when you compile your code with this, you need to link all the library.<br>
 
 <h5>option 2</h5>
 
-if you want build total code to each .so file, then do this:
+if you want build total code to each .so file, then do this:<br>
 
 ```
 chmod +x build.sh
 ./build.sh
 ```
 
-the output .so file may be several files.
-if need, custom the build.sh to fit you wants.
+the output .so file may be several files.<br>
+if need, custom the build.sh to fit you wants.<br>
 
 <h5>common</h5>
 The file build.sh or buildTotal.sh will compile my source codes to .so library file.<br>
