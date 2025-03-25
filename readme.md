@@ -1,5 +1,5 @@
-<h1>libminpie_pub</h1>
-minpie의 모듈/라이브러리 공개 보관소입니다.
+<h1>libminpie_priv</h1>
+minpie의 모듈/라이브러리 비공개 보관소입니다.
 <hr>
 
 ```
@@ -14,12 +14,16 @@ libminpie_c_crypto: libminpie_c_crypto 라이브러리 폴더
 libminpie_c_crypto: 암호 모듈 라이브러리
 
 ```
+Symmetric Key Crypto:
 AES(Advanced Encryption Standard){
 AES-128
 AES-128(with OpenSSL)
 AES-192(with OpenSSL)
 AES-256(with OpenSSL)
 }
+
+Asymmetric Key Crypto:
+RSA(with GNU GMP)
 ```
 
 <hr>

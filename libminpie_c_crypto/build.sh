@@ -14,3 +14,7 @@ $COMMAND_GCC -shared ${PATH_OUTPUT}/libminpieSslaes.o -o ${PATH_OUTPUT}/libminpi
 ### libminpieAes.so:
 $COMMAND_GCC -c -fpic ${PATH_SOURCECODES}/symmetric/libminpieAes.c -o ${PATH_OUTPUT}/libminpieAes.o
 $COMMAND_GCC -shared ${PATH_OUTPUT}/libminpieAes.o -o ${PATH_OUTPUT}/libminpieAes.so
+
+### libminpieGmprsa.so:
+$COMMAND_GCC -c -fpic ${PATH_SOURCECODES}/asymmetric/libminpieGmprsa.c -o ${PATH_OUTPUT}/libminpieGmprsa.o
+$COMMAND_GCC -shared ${PATH_OUTPUT}/libminpieGmprsa.o -o ${PATH_OUTPUT}/libminpieGmprsa.so
