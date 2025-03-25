@@ -7,6 +7,7 @@ ver.250324.1
 
 compile with like this:
 - gcc -o example1 example1.c -L"./../output" -Wl,-rpath="./../output" -l"minpieSslaes" -lssl -lcrypto
+- gcc -o example1 example1.c -L"./../output" -Wl,-rpath="./../output" -l"minpiecrypto" -lssl -lcrypto -lgmp
 */
 // # Start code
 // ## include:

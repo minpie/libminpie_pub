@@ -18,10 +18,13 @@ If you using other environment, may not compiled or need some modify.<br>
 Ubuntu 20.04 LTS x86-64 architecture
 GCC 9.4.0
 OpenSSL 1.1.1f(OPTIONAL)
+GNU GMP 6.2.0(OPTIONAL)
 ```
+
 comment 1: Other linux version may works.<br>
 comment 2: OpenSSL is not required for not all my codes. if need, change build.sh
 comment 3: OpenSSL is can be easily installed by ($ sudo apt-get install libssl-dev), but will be not latest version.<br>
+comment 4: GNU GMP is not required for not all my codes. if need, change build.sh
 
 <h4>1. Clone this repo.</h4>
 
@@ -35,13 +38,34 @@ and move to the downloaded directory.<br>
 
 <h4>2. Build this library.</h4>
 
+<h5>option 1</h5>
+
+if you want build total code to one .so file, then do this:
+
+```
+chmod +x buildTotal.sh
+./buildTotal.sh
+```
+
+the output .so file may be libminpiecrypto.so
+that's requires all dependent library like GNU GMP, OpenSSL.
+so when you compile your code with this, you need to link all the library.
+
+<h5>option 2</h5>
+
+if you want build total code to each .so file, then do this:
+
 ```
 chmod +x build.sh
 ./build.sh
 ```
 
-The file build.sh will compile my source codes to .so library file.<br>
-If you need, you can modify build.sh to change something(e.g. GCC version)<br>
+the output .so file may be several files.
+if need, custom the build.sh to fit you wants.
+
+<h5>common</h5>
+The file build.sh or buildTotal.sh will compile my source codes to .so library file.<br>
+If you need, you can modify the scripts to change something(e.g. GCC version)<br>
 
 <h4>3. Set correct path to access this library(OPTIONAL)</h4>
 will add this section later.<br>
@@ -68,6 +92,7 @@ ver.250325.1
 
 compile with like this:
 - gcc -o example2 example2.c -L"./../output" -Wl,-rpath="./../output" -l"minpieAes"
+- gcc -o example2 example2.c -L"./../output" -Wl,-rpath="./../output" -l"minpiecrypto" -lssl -lcrypto -lgmp
 */
 // # Start code
 // ## include:
