@@ -1,5 +1,5 @@
-<h1>libminpie_priv</h1>
-minpie의 모듈/라이브러리 비공개 보관소입니다.
+<h1>libminpie_pub</h1>
+minpie의 모듈/라이브러리 공개 보관소입니다.
 <hr>
 
 ```
